@@ -18,20 +18,42 @@ export default function SensorChart({
     })
   );
 
+  const max =
+    Math.max(...history);
+
+  const min =
+    Math.min(...history);
+
+  const avg =
+    history.reduce(
+      (a, b) => a + b,
+      0
+    ) / history.length;
+
   return (
     <View
       style={{
-        marginBottom: 30,
+        marginBottom: 35,
       }}
     >
       <Text
         style={{
           color: "#FFF",
           fontSize: 18,
-          marginBottom: 15,
+          marginBottom: 10,
         }}
       >
         {title}
+      </Text>
+
+      <Text
+        style={{
+          color: "#AAA",
+          marginBottom: 10,
+        }}
+      >
+        Máx: {max} | Min: {min} |
+        Média: {avg.toFixed(1)}
       </Text>
 
       <LineChart
@@ -40,14 +62,10 @@ export default function SensorChart({
         thickness={3}
         areaChart
         hideDataPoints
-        hideRules
-        hideYAxisText
-        hideAxesAndRules
         startFillColor={color}
         endFillColor={color}
-        startOpacity={0.3}
-        endOpacity={0.05}
-        backgroundColor="#111"
+        startOpacity={0.25}
+        endOpacity={0.02}
       />
     </View>
   );

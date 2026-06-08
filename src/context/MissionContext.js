@@ -63,8 +63,25 @@ export function MissionProvider({
     setOrbitalHistory,
   ] = useState([98]);
 
+  const [
+  tempLimit,
+  setTempLimit,
+] = useState(80);
+
+const [
+  batteryLimit,
+  setBatteryLimit,
+] = useState(25);
+
+const [
+  signalLimit,
+  setSignalLimit,
+] = useState(20);
+
   useEffect(() => {
     initialize();
+
+    
 
     const interval =
       setInterval(updateMission, 3000);

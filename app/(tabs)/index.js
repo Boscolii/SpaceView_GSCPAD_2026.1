@@ -1,10 +1,14 @@
 import {
-  View,
-  StyleSheet,
   ScrollView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
 } from "react-native";
 
+import { router } from "expo-router";
+
 import MetricCard from "../../src/components/MetricCard";
+import MissionStatusCard from "../../src/components/MissionStatusCard";
 
 import {
   useMission,
@@ -17,12 +21,23 @@ export default function Home() {
     signal,
     orbitalStability,
     alerts,
+    missionStatus,
   } = useMission();
 
   return (
-    <ScrollView
-      style={styles.container}
-    >
+    <ScrollView style={styles.container}>
+      <Text style={styles.title}>
+        SPACEVIEW
+      </Text>
+
+      <Text style={styles.subtitle}>
+        Centro de Controle Orbital
+      </Text>
+
+      <MissionStatusCard
+        status={missionStatus}
+      />
+
       <MetricCard
         title="Temperatura"
         value={`${temperature}°C`}
@@ -47,6 +62,17 @@ export default function Home() {
         title="Alertas Ativos"
         value={alerts.length}
       />
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() =>
+          router.push("/config")
+        }
+      >
+        <Text style={styles.buttonText}>
+          Configurações
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -58,5 +84,30 @@ const styles =
       backgroundColor:
         "#000",
       padding: 15,
+    },
+
+    title: {
+      color: "#00D4FF",
+      fontSize: 34,
+      fontWeight: "bold",
+      marginBottom: 5,
+    },
+
+    subtitle: {
+      color: "#AAA",
+      marginBottom: 20,
+    },
+
+    button: {
+      backgroundColor:
+        "#00D4FF",
+      padding: 15,
+      borderRadius: 10,
+      marginTop: 15,
+    },
+
+    buttonText: {
+      textAlign: "center",
+      fontWeight: "bold",
     },
   });
