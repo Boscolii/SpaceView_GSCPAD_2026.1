@@ -2,6 +2,10 @@
 
 ### Global Solution 2026.1 — Cross-Platform Application Development | FIAP
 
+<p align="center">
+  <img src="./assets/SpaceViewlogo.png" width="300">
+</p>
+
 ---
 
 ## Descrição
