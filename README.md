@@ -26,11 +26,22 @@ O SpaceView é uma aplicação mobile desenvolvida em React Native e Expo para m
 
 Visão geral da missão espacial contendo status operacional, indicadores principais e acesso às funcionalidades do sistema.
 
+<img width="368" height="775" alt="image" src="https://github.com/user-attachments/assets/6eac25e6-ae2b-4cad-a71b-c50a0aab8956" />
+<img width="374" height="788" alt="image" src="https://github.com/user-attachments/assets/96096833-849a-422a-a8d6-cc803d364569" />
+
 ---
 
 ### Dashboard de Sensores
 
 Monitoramento dos sensores da missão com gráficos históricos, valores máximos, mínimos, médias e tendências de comportamento.
+
+<img width="378" height="727" alt="image" src="https://github.com/user-attachments/assets/51ae84bd-a05a-4ecf-8d36-edc6775554e9" />
+<img width="369" height="663" alt="image" src="https://github.com/user-attachments/assets/56ba3937-217f-4b75-b7ad-a421a4732f4b" />
+<img width="377" height="709" alt="image" src="https://github.com/user-attachments/assets/b78ba435-835d-4090-84f1-00dd7a86f8ca" />
+<img width="374" height="481" alt="image" src="https://github.com/user-attachments/assets/dc999dd0-8533-4545-93e2-638a434d9c57" />
+
+
+
 
 ---
 
@@ -38,17 +49,23 @@ Monitoramento dos sensores da missão com gráficos históricos, valores máximo
 
 Sistema de alertas automáticos baseado em limites críticos configuráveis, além do histórico persistente de eventos da missão.
 
+<img width="366" height="799" alt="image" src="https://github.com/user-attachments/assets/04aaff2c-f3a0-4fe5-a66e-81acdb65145c" />
+
 ---
 
 ### IA Preditiva
 
 Módulo de análise inteligente responsável por interpretar os dados monitorados, identificar tendências e fornecer recomendações operacionais.
 
+<img width="365" height="795" alt="image" src="https://github.com/user-attachments/assets/fe49d777-fdfc-4405-9435-a943ca6774e2" />
+
 ---
 
 ### Configurações
 
 Formulário de configuração dos limites críticos de temperatura, bateria e comunicação com validação de dados e persistência local.
+
+<img width="377" height="607" alt="image" src="https://github.com/user-attachments/assets/17cbd564-2c28-457a-90df-ecea4389d9a3" />
 
 ---
 
@@ -106,8 +123,10 @@ git clone https://github.com/Boscolii/SpaceView_GSCPAD_2026.1.git
 
 Acesse a pasta do projeto:
 
+EX:
+
 ```bash
-cd SpaceView
+cd SpaceView_GSCPAD_2026.1
 ```
 
 Instale as dependências:
@@ -122,7 +141,7 @@ Inicie o projeto:
 npx expo start
 ```
 
-Escaneie o QR Code utilizando o Expo Go para executar o aplicativo.
+Escaneie o QR Code utilizando o Expo Go para executar o aplicativo ou utilize emulador virtual.
 
 ---
 
