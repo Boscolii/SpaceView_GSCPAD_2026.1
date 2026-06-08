@@ -26,37 +26,63 @@ function variation(
 }
 
 export function generateTemperature() {
-  temperature =
-    variation(
-      temperature,
-      8,
-      50,
-      95
-    );
+  const criticalEvent =
+    Math.random() < 0.1;
+
+  if (criticalEvent) {
+    temperature =
+      Math.floor(
+        Math.random() * 15 + 80
+      );
+  } else {
+    temperature =
+      variation(
+        temperature,
+        8,
+        55,
+        75
+      );
+  }
 
   return temperature;
 }
 
 export function generateBattery() {
-  battery =
-    variation(
+  const criticalEvent =
+    Math.random() < 0.05;
+
+  if (criticalEvent) {
+    battery = Math.floor(
+      Math.random() * 20 + 10
+    );
+  } else {
+    battery = variation(
       battery,
-      4,
-      0,
+      8,
+      70,
       100
     );
+  }
 
   return battery;
 }
 
 export function generateSignal() {
-  signal =
-    variation(
+  const criticalEvent =
+    Math.random() < 0.05;
+
+  if (criticalEvent) {
+    signal = Math.floor(
+      Math.random() * 25 + 5
+    );
+  } else {
+    signal = variation(
       signal,
-      8,
-      0,
+      10,
+      60,
       100
     );
+  }
 
   return signal;
 }

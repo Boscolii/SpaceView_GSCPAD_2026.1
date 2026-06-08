@@ -7,11 +7,28 @@ import {
 export default function Layout() {
   return (
     <MissionProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <Stack>
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="config"
+          options={{
+            title: "Configurações",
+            headerStyle: {
+              backgroundColor: "#111",
+            },
+            headerTintColor: "#00D4FF",
+            headerTitleStyle: {
+              color: "#FFF",
+            },
+          }}
+        />
+      </Stack>
     </MissionProvider>
   );
 }

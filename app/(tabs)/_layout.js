@@ -53,40 +53,26 @@ export default function TabsLayout() {
       />
 
       <Tabs.Screen
-        name="energy"
-        options={{
-          title: "Energia",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons
-              name="battery-half"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="communication"
-        options={{
-          title: "Comunicação",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons
-              name="radio"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
         name="alerts"
         options={{
           title: "Alertas",
           tabBarIcon: ({ color, size }) => (
             <Ionicons
               name="warning"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="prediction"
+        options={{
+          title: "IA",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="sparkles"
               size={size}
               color={color}
             />

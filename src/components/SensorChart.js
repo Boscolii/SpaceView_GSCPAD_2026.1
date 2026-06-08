@@ -46,16 +46,6 @@ export default function SensorChart({
         {title}
       </Text>
 
-      <Text
-        style={{
-          color: "#AAA",
-          marginBottom: 10,
-        }}
-      >
-        Máx: {max} | Min: {min} |
-        Média: {avg.toFixed(1)}
-      </Text>
-
       <LineChart
         data={data}
         color={color}

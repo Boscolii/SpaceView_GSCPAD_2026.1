@@ -20,8 +20,13 @@ export default function Home() {
     battery,
     signal,
     orbitalStability,
+
     alerts,
     missionStatus,
+
+    tempLimit,
+    batteryLimit,
+    signalLimit,
   } = useMission();
 
   return (
@@ -81,8 +86,7 @@ const styles =
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor:
-        "#000",
+      backgroundColor: "#000",
       padding: 15,
     },
 
@@ -98,16 +102,23 @@ const styles =
       marginBottom: 20,
     },
 
+    limitText: {
+      color: "#FFF",
+      fontSize: 14,
+      marginBottom: 5,
+    },
+
     button: {
-      backgroundColor:
-        "#00D4FF",
+      backgroundColor: "#00D4FF",
       padding: 15,
       borderRadius: 10,
       marginTop: 15,
+      marginBottom: 20,
     },
 
     buttonText: {
       textAlign: "center",
       fontWeight: "bold",
+      color: "#000",
     },
   });

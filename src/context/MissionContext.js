@@ -15,10 +15,11 @@ import {
 import {
   loadAlertHistory,
   saveAlertHistory,
+  loadSettings,
+  clearAlertHistory,
 } from "../storage/missionStorage";
 
-const MissionContext =
-  createContext();
+const MissionContext = createContext();
 
 export function MissionProvider({
   children,
@@ -64,39 +65,66 @@ export function MissionProvider({
   ] = useState([98]);
 
   const [
-  tempLimit,
-  setTempLimit,
-] = useState(80);
+    tempLimit,
+    setTempLimit,
+  ] = useState(80);
 
-const [
-  batteryLimit,
-  setBatteryLimit,
-] = useState(25);
+  const [
+    batteryLimit,
+    setBatteryLimit,
+  ] = useState(25);
 
-const [
-  signalLimit,
-  setSignalLimit,
-] = useState(20);
+  const [
+    signalLimit,
+    setSignalLimit,
+  ] = useState(20);
 
   useEffect(() => {
     initialize();
+  }, []);
 
-    
-
+  useEffect(() => {
     const interval =
-      setInterval(updateMission, 3000);
+      setInterval(
+        updateMission,
+        3000
+      );
 
     return () =>
       clearInterval(interval);
-  }, []);
+  }, [
+    tempLimit,
+    batteryLimit,
+    signalLimit,
+  ]);
 
-  async function initialize() {
+ async function initialize() {
+  try {
     const savedHistory =
       await loadAlertHistory();
 
-    setAlertHistory(savedHistory);
-  }
+    setAlertHistory(
+      savedHistory
+    );
 
+    const settings =
+      await loadSettings();
+
+    if (settings) {
+      setTempLimit(
+        settings.tempLimit
+      );
+
+      setBatteryLimit(
+        settings.batteryLimit
+      );
+
+      setSignalLimit(
+        settings.signalLimit
+      );
+    }
+  } catch (error) {}
+}
   async function updateMission() {
     const temp =
       generateTemperature();
@@ -135,19 +163,19 @@ const [
 
     const currentAlerts = [];
 
-    if (temp > 80) {
+    if (temp > tempLimit) {
       currentAlerts.push(
         "🔥 Temperatura Crítica"
       );
     }
 
-    if (bat < 25) {
+    if (bat < batteryLimit) {
       currentAlerts.push(
         "⚡ Energia Baixa"
       );
     }
 
-    if (sig < 20) {
+    if (sig < signalLimit) {
       currentAlerts.push(
         "📡 Falha de Comunicação"
       );
@@ -163,20 +191,26 @@ const [
           currentAlerts,
       };
 
-      const updatedHistory = [
-        newEvent,
-        ...alertHistory,
-      ];
+      setAlertHistory((prev) => {
+        const updated = [
+          newEvent,
+          ...prev,
+        ].slice(0, 50);
 
-      setAlertHistory(
-        updatedHistory
-      );
+        saveAlertHistory(
+          updated
+        );
 
-      await saveAlertHistory(
-        updatedHistory
-      );
+        return updated;
+      });
     }
   }
+
+  async function clearHistory() {
+  setAlertHistory([]);
+
+  await clearAlertHistory();
+}
 
   const missionStatus =
     alerts.length > 0
@@ -200,6 +234,16 @@ const [
         alertHistory,
 
         missionStatus,
+
+        tempLimit,
+        batteryLimit,
+        signalLimit,
+
+        setTempLimit,
+        setBatteryLimit,
+        setSignalLimit,
+
+        clearHistory,
       }}
     >
       {children}

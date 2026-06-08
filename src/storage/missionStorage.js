@@ -60,3 +60,13 @@ export async function loadSettings() {
     return null;
   }
 }
+
+export async function clearAlertHistory() {
+  try {
+    await AsyncStorage.removeItem(
+      ALERT_HISTORY_KEY
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
