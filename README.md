@@ -84,6 +84,8 @@ Formulário de configuração dos limites críticos de temperatura, bateria e co
 * [x] Tendências operacionais dos sensores
 * [x] Módulo de análise preditiva
 * [x] Classificação de risco da missão (baixo, médio e alto)
+* [x] Sistema de classificação de risco da missão
+* [x] Recomendações inteligentes para tomada de decisão
 
 ---
 
