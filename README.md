@@ -169,7 +169,7 @@ scripts/
 
 ## Vídeo de Demonstração
 
-[Clique aqui para assistir à demonstração](https://youtube.com/SEU_LINK_AQUI)
+
 
 ---
 
