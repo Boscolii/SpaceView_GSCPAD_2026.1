@@ -169,7 +169,7 @@ scripts/
 
 ## Vídeo de Demonstração
 
-
+[Clique aqui para direcionar para o video demonstrativo](https://youtube.com/shorts/K76VIysaRW4)
 
 ---
 
